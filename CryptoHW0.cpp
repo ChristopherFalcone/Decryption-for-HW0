@@ -1,0 +1,101 @@
+#include <iostream>
+#include <sstream>
+#include "Cryptohelper.hpp"
+
+using namespace std;
+
+/*
+Main program that runs the decryption.
+*/
+
+int main()
+{
+    //Stuff for finding the Polyalphabetic Key.
+    map<string, vector<int>> space_difference;
+    insert_into_map(space_difference);
+    print_map_to_terminal(space_difference);
+
+    vector<int> differences = differences_in_length(space_difference);
+    print_array(differences);
+
+    int key = check_for_key(differences);
+    cout << "\n\nPolyalphabetic Key: " << key << "\n\n";
+
+    //Stuff for sorting data into seperate bins.
+    //This initializes a vector called bins, and puts an empty map in each element up to size: key.
+    vector<map<char, int>> bins(key, map<char, int>());
+
+    fill_bins_w_frequency(bins);
+
+    return 0;
+}
+
+/*
+Helper functions declared in Cryptohelper.hpp are defined here.
+*/
+
+void insert_into_map(map<string, vector<int>>& map)
+{
+    istringstream ss_in(code);
+    
+    string word;
+    int position = 0;
+    while(ss_in >> word)
+    {
+        if(map.contains(word))
+        {
+            map[word].push_back(position);
+        }
+        else
+        {
+            vector<int> v = {position};
+            map.insert({word, v});
+        }
+        position += word.size();
+    }
+}
+
+vector<int> differences_in_length(const map<string, vector<int>>& map)
+{
+    vector<int> differences;
+    for (auto itr = map.begin(); itr != map.end(); ++itr)
+    {
+        vector<int> arr = itr -> second;
+        int size = arr.size();
+        if (size > 1)
+        {
+            int last = arr[size - 1];
+            for (int i = size - 2; i >= 0; --i)
+            {
+                differences.push_back(last - arr[i]);
+                last = arr[i];
+            }
+        }
+    }
+    return differences;
+}
+
+int check_for_key(const vector<int>& arr)
+{
+    for (int i = 2; i <= 39; ++i)
+    {
+        bool is_divisor = true;
+        for (int num : arr)
+        {
+            if (num % i != 0)
+            {
+                is_divisor = false;
+            }
+        }
+        if (is_divisor)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void fill_bins_w_frequency(vector<map<char, int>>& bins)
+{
+    //finish later
+}
