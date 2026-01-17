@@ -61,8 +61,8 @@ int main()
     vector<char> domain_1 = {'J', 'P', 'F', 'T', 'D', 'X', 'W', 'S', 'V', 'G', 'C', 'A', 'B', 'Y', 'Q', 'E', 'N', 'R', 'Z', 'U', 'H'};
     vector<char> range_1 = {'H', 'I', 'R', 'A', 'M', 'T', 'C', 'P', 'G', 'O', 'F', 'E', 'S', 'L', 'N', 'D', 'X', 'U', 'B', 'Y', 'W'};
 
-    vector<char> domain_2 = {'T', 'D', 'A', 'X', 'F', 'B', 'N', 'J', 'P', 'S', 'Y', 'C', 'K', 'U', 'G', 'I', 'W', 'E'};
-    vector<char> range_2 = {'I', 'S', 'E', 'F', 'G', 'R', 'T', 'H', 'O', 'U', 'N', 'D', 'A', 'B', 'M', 'C', 'P', 'Y'};
+    vector<char> domain_2 = {'T', 'D', 'A', 'X', 'F', 'B', 'N', 'J', 'P', 'S', 'Y', 'C', 'K', 'U', 'G', 'I', 'W', 'E', 'M'};
+    vector<char> range_2 = {'I', 'S', 'E', 'F', 'G', 'R', 'T', 'H', 'O', 'U', 'N', 'D', 'A', 'B', 'M', 'C', 'P', 'Y', 'L'};
 
     update_string_custom_vector(updated_code, 0, key, domain_0, range_0);
     update_string_custom_vector(updated_code, 1, key, domain_1, range_1);
