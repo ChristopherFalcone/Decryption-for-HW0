@@ -65,7 +65,7 @@ int check_for_key(const vector<int>& arr)
             return i;
         }
     }
-    return -1;
+    return 1;
 }
 
 void fill_bins_w_frequency(vector<map<char, int>>& bins)
@@ -143,10 +143,117 @@ int compare_frequencies(char target)
     {
         if (ALPHABET[position] == target) break;
     }
-    return position - index_of_e;
+    return index_of_e - position;
 }
 
-string update_string(const vector<int>& shifts)
-{
-    
+void update_string_caeser(string& target, int index, int key, int shift)
+{   
+    int count = 0;
+    for (auto itr = target.begin(); itr != target.end(); ++itr)
+    {
+        char letter = *itr;
+        if (letter == ' ')
+        {
+            continue;
+        }
+        if (count == key)
+        {
+            count = 0;
+        }
+
+        if (count == index)
+        {
+            ++count;
+        }
+        else
+        {
+            ++count;
+            continue;
+        }
+
+        for (int i = 0; i < 26; ++i)
+        {
+            if (ALPHABET[i] == letter)
+            {
+                int new_position = i + shift;
+                if (new_position > 25)
+                {
+                    new_position -= 26;
+                }
+                else if (new_position < 0)
+                {
+                    new_position += 26;
+                }
+                *itr = ALPHABET[new_position];
+                break;
+            }
+        }
+    }
+}
+
+void update_string_custom(string& target, int index, int key, char chosen, char new_chosen)
+{   
+    int count = 0;
+    for (auto itr = target.begin(); itr != target.end(); ++itr)
+    {
+        char letter = *itr;
+        if (letter == ' ')
+        {
+            continue;
+        }
+        if (count == key)
+        {
+            count = 0;
+        }
+
+        if (count == index)
+        {
+            ++count;
+        }
+        else
+        {
+            ++count;
+            continue;
+        }
+
+        if (letter == chosen)
+        {
+            *itr = new_chosen;
+        }
+    }
+}
+
+void update_string_custom_vector(string& target, int index, int key, vector<char> chosen, vector<char> new_chosen)
+{   
+    int count = 0;
+    for (auto itr = target.begin(); itr != target.end(); ++itr)
+    {
+        char letter = *itr;
+        if (letter == ' ')
+        {
+            continue;
+        }
+        if (count == key)
+        {
+            count = 0;
+        }
+
+        if (count == index)
+        {
+            ++count;
+        }
+        else
+        {
+            ++count;
+            continue;
+        }
+
+        for (int i = 0; i < chosen.size(); ++i)
+        {
+            if (letter == chosen[i])
+            {
+                *itr = new_chosen[i];
+            }
+        }
+    }
 }

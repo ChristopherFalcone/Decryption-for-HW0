@@ -19,7 +19,9 @@ void fill_bins_w_frequency(std::vector<std::map<char, int>>&);
 char find_largest(std::map<char, int>&);
 char find_largest(std::map<char, int>&, char);
 int compare_frequencies(char target);
-std::string update_string(const std::vector<int>&);
+void update_string_caeser(std::string&, int, int, int);
+void update_string_custom(std::string&, int, int, char, char);
+void update_string_custom_vector(std::string&, int, int, std::vector<char>, std::vector<char>);
 
 template<typename T>
 inline void print_array(T arr)
