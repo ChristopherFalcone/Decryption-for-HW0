@@ -4,6 +4,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <iostream>
 
 //global constants
 const std::string code = "PJTE PD PJA AYKIQNTNN GC NVA XIFDP TDEPFRDARX TR GSM WBDSNGVBXSJD WPKFDT CPM XJIB KEBTBQGTQN AYAXBA ERUHPN PJA AYKIQNTNN GC NVPD TQIMUWPPPR TD XQ AHTTW TMGQF SPNV T DVGBP FAAGBP EAEWBIZTRV NVA CICXTFARX GGQPXYWVTUTXTJ WTAJAMB SEAC IQ NVA ARWBDSNIGY FADJFTOA JGH EGR IMTIUAC PJTE TDEPFRDARX NVAY FANTFGIQA IC IVTNBSN GF DGDA GXJTF KI TDEPDPTYP WKR JAWS IMTIU XJIB KEBTBQGTQN PJTE TDEPFRDARX TE EST PY GQA HGYPJ DPTBPPYB CBGD NGEKD";
@@ -18,6 +19,7 @@ void fill_bins_w_frequency(std::vector<std::map<char, int>>&);
 char find_largest(std::map<char, int>&);
 char find_largest(std::map<char, int>&, char);
 int compare_frequencies(char target);
+std::string update_string(const std::vector<int>&);
 
 template<typename T>
 inline void print_array(T arr)
