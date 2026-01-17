@@ -27,7 +27,14 @@ int main()
 
     fill_bins_w_frequency(bins);
 
-    print_map_to_terminal(bins[0]);
+    for (int i = 0; i < bins.size(); ++i)
+    {
+        char largest = find_largest(bins[i]);
+        char second_largest = find_largest(bins[i], largest);
+        print_map_to_terminal(bins[i]);
+        cout << "Largest Char in map " << i << ": " << largest << "\n";
+        cout << "Second Largest Char in map " << i << ": " << second_largest << "\n";
+    }
 
     return 0;
 }
@@ -122,4 +129,45 @@ void fill_bins_w_frequency(vector<map<char, int>>& bins)
         }
         ++itr;
     }
+}
+
+char find_largest(map<char, int>& m)
+{
+    int largest_int = 0;
+    char largest_char = '\0';
+    for (auto itr = m.begin(); itr != m.end(); ++itr)
+    {
+        char ch_value = itr -> first;
+        int int_value = itr -> second;
+
+        if (int_value > largest_int)
+        {
+            largest_int = int_value;
+            largest_char = ch_value;
+        }
+    }
+    return largest_char;
+}
+
+char find_largest(map<char, int>& m, char previous)
+{
+    int largest_int = 0;
+    char largest_char = '\0';
+    for (auto itr = m.begin(); itr != m.end(); ++itr)
+    {
+        char ch_value = itr -> first;
+        int int_value = itr -> second;
+
+        if (ch_value == previous)
+        {
+            continue;
+        }
+
+        if (int_value > largest_int)
+        {
+            largest_int = int_value;
+            largest_char = ch_value;
+        }
+    }
+    return largest_char;
 }

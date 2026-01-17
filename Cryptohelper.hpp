@@ -14,6 +14,8 @@ void insert_into_map(std::map<std::string, std::vector<int>>&);
 std::vector<int> differences_in_length(const std::map<std::string, std::vector<int>>&);
 int check_for_key(const std::vector<int>&);
 void fill_bins_w_frequency(std::vector<std::map<char, int>>&);
+char find_largest(std::map<char, int>&);
+char find_largest(std::map<char, int>&, char);
 
 template<typename T>
 inline void print_array(T arr)
