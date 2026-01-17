@@ -27,13 +27,20 @@ int main()
 
     fill_bins_w_frequency(bins);
 
+    //main loop
     for (int i = 0; i < bins.size(); ++i)
     {
         char largest = find_largest(bins[i]);
+        int first_shift = compare_frequencies(largest);
         char second_largest = find_largest(bins[i], largest);
+        int second_shift = compare_frequencies(second_largest);
+
         print_map_to_terminal(bins[i]);
+
         cout << "Largest Char in map " << i << ": " << largest << "\n";
+        cout << "Distance to shift " << i << ": " << first_shift << "\n";
         cout << "Second Largest Char in map " << i << ": " << second_largest << "\n";
+        cout << "Distance to shift " << i << ": " << second_shift << "\n";
     }
 
     return 0;
@@ -170,4 +177,14 @@ char find_largest(map<char, int>& m, char previous)
         }
     }
     return largest_char;
+}
+
+int compare_frequencies(char target)
+{
+    int position = 0;
+    for (position; position < 26; ++position)
+    {
+        if (ALPHABET[position] == target) break;
+    }
+    return position - index_of_e;
 }
