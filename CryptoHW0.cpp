@@ -13,7 +13,7 @@ int main()
     //Stuff for finding the Polyalphabetic Key.
     map<string, vector<int>> space_difference;
     insert_into_map(space_difference);
-    print_map_to_terminal(space_difference);
+    print_map_arr_to_terminal(space_difference);
 
     vector<int> differences = differences_in_length(space_difference);
     print_array(differences);
@@ -26,6 +26,8 @@ int main()
     vector<map<char, int>> bins(key, map<char, int>());
 
     fill_bins_w_frequency(bins);
+
+    print_map_to_terminal(bins[0]);
 
     return 0;
 }
@@ -97,5 +99,27 @@ int check_for_key(const vector<int>& arr)
 
 void fill_bins_w_frequency(vector<map<char, int>>& bins)
 {
-    //finish later
+    auto itr = code.begin();
+    for (int i = 0; itr != code.end(); ++i)
+    {
+        if (i == bins.size()) 
+        {
+            i = 0;
+        }
+        if (*itr == ' ')
+        {
+            ++itr;
+            continue;
+        }
+
+        if (bins[i].contains(*itr))
+        {
+            bins[i][*itr]++;
+        }
+        else
+        {
+            bins[i].insert({*itr, 1});
+        }
+        ++itr;
+    }
 }

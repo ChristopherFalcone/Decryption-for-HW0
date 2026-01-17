@@ -18,11 +18,20 @@ void fill_bins_w_frequency(std::vector<std::map<char, int>>&);
 template<typename T>
 inline void print_array(T arr)
 {
-    for (auto itr = arr.begin(); itr != arr.end(); ++itr) std::cout << *itr << " ";
+    for (auto itr = arr.begin(); itr != arr.end(); ++itr) 
+        std::cout << *itr << " ";
 }
 
 template<typename T>
-void print_map_to_terminal(T map)
+inline void print_map_to_terminal(T map)
+{
+    std::cout << "\nMap: \n";
+    for (auto itr = map.begin(); itr != map.end(); ++itr) 
+        std::cout << itr -> first << " " << itr -> second << "\n";
+}
+
+template<typename T>
+void print_map_arr_to_terminal(T map)
 {
     std::cout << "\nMap: \n";
     for (auto itr = map.begin(); itr != map.end(); ++itr)
