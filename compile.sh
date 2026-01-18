@@ -1,6 +1,6 @@
 #!/bin/bash
-SRC_FILE="CryptoHW0.cpp"
-HLPR_FILE="Cryptohelper.cpp"
+SRC_FILE="DecryptionHW0.cpp"
+HLPR_FILE="DecryptionHelper.cpp"
 OUTPUT_EXEC="Cipher"
 
 #Compile

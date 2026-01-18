@@ -1,10 +1,10 @@
 #include <sstream>
-#include "Cryptohelper.hpp"
+#include "DecryptionHelper.hpp"
 
 using namespace std;
 
 /*
-Helper functions declared in Cryptohelper.hpp are defined here.
+Helper functions declared in DecryptionHelper.hpp are defined here.
 */
 
 void insert_into_map(map<string, vector<int>>& map)
