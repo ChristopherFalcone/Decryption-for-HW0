@@ -45,16 +45,18 @@ int main()
         cout << "Distance to shift " << i << ": " << second_shift << "\n";
     }
 
-    //output all possible shifts
     string updated_code(code);
-
     cout << "\n\nOLD STRING: " << code << "\n";
 
+    //Attempted Caesar Solution.
     // update_string_caeser(updated_code, 0, key, shifts[1]);
     // cout << "\n\nNEW STRING: " << updated_code << "\n";
     // update_string_caeser(updated_code, 1, key, shifts[2]);
     // update_string_caeser(updated_code, 2, key, shifts[5]);
 
+    /*
+    HARD CODED SOLTION
+    */
     vector<char> domain_0 = {'P', 'E', 'R', 'D', 'G', 'X', 'K', 'T', 'M', 'V', 'I', 'A', 'H', 'W', 'B', 'S', 'J', 'F', 'O', 'U'};
     vector<char> range_0 = {'T', 'S', 'N', 'Y', 'O', 'A', 'U', 'E', 'R', 'H', 'I', 'P', 'M', 'L', 'G', 'W', 'C', 'D', 'B', 'K'};
 
@@ -68,20 +70,9 @@ int main()
     update_string_custom_vector(updated_code, 1, key, domain_1, range_1);
     update_string_custom_vector(updated_code, 2, key, domain_2, range_2);
 
-    // update_string_custom(updated_code, 0, key, 'P', 'T');
-    // update_string_custom(updated_code, 1, key, 'J', 'H');
-    // update_string_custom(updated_code, 2, key, 'T', 'I');
-    // update_string_custom(updated_code, 0, key, 'E', 'S');
-    // update_string_custom(updated_code, 1, key, 'P', 'I');
-    // update_string_custom(updated_code, 2, key, 'D', 'S');
-    // update_string_custom(updated_code, 2, key, 'A', 'E');
-    // update_string_custom(updated_code, 2, key, 'X', 'F');
-    // update_string_custom(updated_code, 1, key, 'F', 'R');
-    // update_string_custom(updated_code, 1, key, 'T', 'A');
-    // update_string_custom(updated_code, 2, key, 'F', 'G');
-
     cout << "\n\nNEW STRING: " << updated_code << "\n";
 
+    //Might make it iterable in the terminal.
     // while (true)
     // {
     //     cout << ""
